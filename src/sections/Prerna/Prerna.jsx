@@ -18,40 +18,42 @@ function Hero() {
 
   return (
     <section id="hero" className={styles.container}>
-      <div className={styles.colorModeContainer}>
-        <img
-          src={heroImg}
-          className={styles.hero}
-          alt="Profile picture of Prerna Sharma"
-        />
-        <img
-          className={styles.colorMode}
-          src={themeIcon}
-          alt="Color mode icon"
-          onClick={toggleTheme}
-        />
-      </div>
-      <div className={styles.info}>
-        <h1>
-          Prerna
-          <br />
-          Sharma
-        </h1>
-        <br />
-        <span>
-          <a href="https://github.com/prernashhh" target="_blank">
-            <img src={githubIcon} alt="Github icon" />
+      <div className={styles.contentWrapper}>
+        <div className={styles.colorModeContainer}>
+          <img
+            src={heroImg}
+            className={styles.hero}
+            alt="Profile picture of Prerna Sharma"
+          />
+          <div className={styles.colorModeToggle} onClick={toggleTheme}>
+            <img
+              className={styles.colorMode}
+              src={themeIcon}
+              alt="Color mode icon"
+            />
+          </div>
+        </div>
+        <div className={styles.info}>
+          <h1 className={styles.name}>
+            Prerna
+            <br />
+            Sharma
+          </h1>
+          <div className={styles.socialIconsContainer}>
+            <a href="https://github.com/prernashhh" target="_blank" rel="noopener noreferrer">
+              <img src={githubIcon} alt="Github icon" />
+            </a>
+            <a href="https://www.linkedin.com/in/prerna-sharma-2706a224a" target="_blank" rel="noopener noreferrer">
+              <img src={linkedinIcon} alt="LinkedIn icon" />
+            </a>
+          </div>
+          <p className={styles.description}>
+            I'm a passionate B.Tech CSE student at JK Lakshmipat University with hands-on experience in full stack development using MERN + Vite. I love building responsive and user-friendly web applications — from concept to deployment.
+          </p>
+          <a href={CV} download className={styles.resumeLink}>
+            <button className={styles.resumeBtn}>Resume</button>
           </a>
-          <a href="https://www.linkedin.com/in/prerna-sharma-2706a224a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-            <img src={linkedinIcon} alt="Linkedin icon" />
-          </a>
-        </span>
-        <p className={styles.description}>
-          Passionate about building responsive, user-friendly web apps — from concept to deployment.
-        </p>
-        <a href={CV} download>
-          <button className="hover">Resume</button>
-        </a>
+        </div>
       </div>
     </section>
   );

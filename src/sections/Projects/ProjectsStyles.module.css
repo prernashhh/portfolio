@@ -25,8 +25,9 @@
 .projectsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Optional: center the empty space */
-  height: 300px; /* Define the height of the empty space */
+  gap: 40px;
+  padding: 20px 0;
+  /* Remove fixed height for better responsiveness */
 }
 
 
@@ -36,5 +37,16 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 0 30px;
+    gap: 30px;
+  }
+  
+  img {
+    max-width: 300px;
+  }
+}
+
+@media (width >= 1400px) {
+  .projectsContainer img {
+    max-width: 350px;
   }
 }
