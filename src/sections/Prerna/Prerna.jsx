@@ -2,8 +2,6 @@ import styles from './PrernaStyles.module.css';
 import heroImg from '../../assets/profile-pic.png';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
-import twitterLight from '../../assets/twitter-light.svg';
-import twitterDark from '../../assets/twitter-dark.svg';
 import githubLight from '../../assets/github-light.svg';
 import githubDark from '../../assets/github-dark.svg';
 import linkedinLight from '../../assets/linkedin-light.svg';
@@ -15,7 +13,6 @@ function Hero() {
   const { theme, toggleTheme } = useTheme();
 
   const themeIcon = theme === 'light' ? sun : moon;
-  const twitterIcon = theme === 'light' ? twitterLight : twitterDark;
   const githubIcon = theme === 'light' ? githubLight : githubDark;
   const linkedinIcon = theme === 'light' ? linkedinLight : linkedinDark;
 
@@ -42,9 +39,6 @@ function Hero() {
         </h1>
         <br />
         <span>
-          <a href="https://x.com/Preshhh09?t=ntXRHIj8erRxF3x75-xK4g&s=08" target="_blank">
-            <img src={twitterIcon} alt="Twitter icon" />
-          </a>
           <a href="https://github.com/prernashhh" target="_blank">
             <img src={githubIcon} alt="Github icon" />
           </a>
@@ -53,8 +47,7 @@ function Hero() {
           </a>
         </span>
         <p className={styles.description}>
-        Driven by a passion for frontend development, I leverage 
-        React to build user-friendly web applications.
+          Passionate about building responsive, user-friendly web apps — from concept to deployment.
         </p>
         <a href={CV} download>
           <button className="hover">Resume</button>
