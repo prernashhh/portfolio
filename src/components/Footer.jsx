@@ -7,50 +7,7 @@ const Footer = () => {
   return (
     <footer className={`py-6 relative ${darkMode ? 'bg-horror-black/80' : 'bg-spooky-cream/80'} backdrop-blur-sm`}>
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <span className={`text-xl font-bold ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`}>
-              Prerna Sharma
-            </span>
-          </div>
-          
-          <div className="mb-4 md:mb-0">
-            <ul className="flex space-x-6">
-              <li>
-                <a 
-                  href="#home" 
-                  className={`${darkMode ? 'text-gray-400 hover:text-horror-red' : 'text-spooky-gray hover:text-spooky-red'} transition-colors`}
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#about" 
-                  className={`${darkMode ? 'text-gray-400 hover:text-horror-red' : 'text-spooky-gray hover:text-spooky-red'} transition-colors`}
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#projects" 
-                  className={`${darkMode ? 'text-gray-400 hover:text-horror-red' : 'text-spooky-gray hover:text-spooky-red'} transition-colors`}
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className={`${darkMode ? 'text-gray-400 hover:text-horror-red' : 'text-spooky-gray hover:text-spooky-red'} transition-colors`}
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          
+        <div className="flex flex-col md:flex-row justify-center items-center">          
           {/* Social media icons */}
           <div className="mb-4 md:mb-0 flex space-x-4">
             <a 

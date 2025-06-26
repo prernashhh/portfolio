@@ -29,11 +29,6 @@ const Hero = () => {
       ref={containerRef}
       className="min-h-screen flex flex-col justify-center items-center relative px-4 md:px-6 py-20 md:py-16"
     >
-      {/* Cinematic fog overlay */}
-      <div className="absolute inset-0 z-0 hero-fog-overlay"></div>
-      
-      {/* Dark overlay for better contrast */}
-      <div className={`absolute inset-0 z-0 ${darkMode ? 'bg-black/40' : 'bg-black/20'}`}></div>
       
       {/* Decorative blood drips - more subtle and artistic now */}
       <div className={`absolute top-0 left-1/4 w-px h-20 ${darkMode ? 'bg-horror-red' : 'bg-spooky-red'} opacity-70`} 
@@ -43,11 +38,11 @@ const Hero = () => {
       
       {/* Content Container */}
       <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} w-full max-w-4xl mx-auto relative z-10`}>
-        {/* Content background for better readability */}
-        <div className={`${darkMode ? 'bg-black/30' : 'bg-black/10'} backdrop-blur-sm py-10 px-6 rounded-lg`}>
+        {/* Content background for better readability - much more transparent */}
+        <div className={`${darkMode ? 'bg-black/15' : 'bg-white/10'} backdrop-blur-sm py-10 px-6 rounded-lg`}>
           <h1 className="relative mb-8">
             <span className={`block text-4xl sm:text-5xl md:text-7xl mb-4 ${darkMode ? 'text-gray-200' : 'text-spooky-gray'} typewriter-font`}
-                  style={{ textShadow: `0 2px 10px ${darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.7)'}` }}>
+                  style={{ textShadow: `0 2px 10px ${darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.3)'}` }}>
               {/* For mobile: split name into two lines */}
               <span className="block sm:hidden">
                 <div className="mb-1 leading-tight">
@@ -55,7 +50,7 @@ const Hero = () => {
                     <span 
                       key={`mobile-first-${index}`} 
                       className="hero-letter inline-block opacity-0"
-                      style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
+                      style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.3)'}` }}
                     >
                       {letter}
                     </span>
@@ -66,7 +61,7 @@ const Hero = () => {
                     <span 
                       key={`mobile-second-${index}`} 
                       className="hero-letter inline-block opacity-0"
-                      style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
+                      style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.3)'}` }}
                     >
                       {letter}
                     </span>
@@ -80,7 +75,7 @@ const Hero = () => {
                   <span 
                     key={`desktop-${index}`} 
                     className="hero-letter inline-block opacity-0"
-                    style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
+                    style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.3)'}` }}
                   >
                     {letter === ' ' ? '\u00A0' : letter}
                   </span>
@@ -103,7 +98,7 @@ const Hero = () => {
                   }}></span>
           </h1>
           <p className={`text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}
-               style={{ textShadow: `0 2px 8px ${darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.7)'}` }}>
+               style={{ textShadow: `0 2px 8px ${darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.3)'}` }}>
             Computer Science & Engineering Student at JK Lakshmipat University,
             crafting <span className={darkMode ? 'text-horror-red' : 'text-spooky-red'}>innovative</span> web applications 
             with modern technologies.
@@ -138,13 +133,6 @@ const Hero = () => {
             </a>
           </div>
         </div>
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <span className={`text-sm mb-2 ${darkMode ? 'text-gray-500' : 'text-spooky-gray/70'}`}>Scroll Down</span>
-        <div className={`w-px h-12 ${darkMode ? 'bg-horror-red' : 'bg-spooky-red'} opacity-60`} 
-             style={{ animation: 'scroll-indicator 2s ease-in-out infinite' }}></div>
       </div>
       
       <style>{`
@@ -226,17 +214,6 @@ const Hero = () => {
             rgba(0, 0, 0, 0.3) 50%, 
             rgba(0, 0, 0, 0.6) 100%
           );
-        }
-        
-        @keyframes scroll-indicator {
-          0%, 100% { 
-            transform: translateY(0); 
-            opacity: 0.6;
-          }
-          50% { 
-            transform: translateY(10px); 
-            opacity: 1;
-          }
         }
       `}</style>
     </section>

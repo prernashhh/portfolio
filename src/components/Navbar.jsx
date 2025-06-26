@@ -1,5 +1,5 @@
 // filepath: c:\Users\Prerna\portfolio\src\components\NavBar.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../ThemeContext';
 
 const NavBar = () => {
@@ -7,6 +7,7 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoverIndex, setHoverIndex] = useState(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,23 @@ const NavBar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -30,7 +48,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${
+    <nav ref={menuRef} className={`fixed w-full z-50 transition-all duration-500 ${
       isScrolled 
         ? `${darkMode ? 'bg-horror-black/90 backdrop-blur-sm' : 'bg-spooky-cream/90 backdrop-blur-sm'} shadow-md` 
         : 'bg-transparent'
@@ -51,13 +69,17 @@ const NavBar = () => {
         <div className="md:hidden">
           <button 
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`p-2 focus:outline-none ${darkMode ? 'text-white' : 'text-spooky-gray'}`}
+            className={`p-2 focus:outline-none hover:bg-opacity-10 rounded transition-colors duration-200 ${
+              darkMode 
+                ? 'text-white hover:bg-white' 
+                : 'text-gray-800 hover:bg-gray-800'
+            }`}
             aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
           >
             <div className="w-6 flex flex-col items-end space-y-1.5 transform transition-all duration-300">
-              <span className={`block h-px w-full ${darkMode ? 'bg-white' : 'bg-spooky-gray'} transform transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-              <span className={`block h-px ${menuOpen ? 'w-full' : 'w-3/4'} ${darkMode ? 'bg-white' : 'bg-spooky-gray'} transform transition-all duration-300 ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`block h-px ${menuOpen ? 'w-full' : 'w-1/2'} ${darkMode ? 'bg-white' : 'bg-spooky-gray'} transform transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+              <span className={`block h-0.5 w-full ${darkMode ? 'bg-white' : 'bg-white'} transform transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`block h-0.5 ${menuOpen ? 'w-full' : 'w-3/4'} ${darkMode ? 'bg-white' : 'bg-white'} transform transition-all duration-300 ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`block h-0.5 ${menuOpen ? 'w-full' : 'w-1/2'} ${darkMode ? 'bg-white' : 'bg-white'} transform transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </div>
           </button>
         </div>
@@ -98,8 +120,16 @@ const NavBar = () => {
         </div>
       </div>
 
+      {/* Mobile menu backdrop */}
+      {menuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile menu */}
-      <div className={`md:hidden transform transition-all duration-500 ease-in-out ${
+      <div className={`md:hidden transform transition-all duration-500 ease-in-out relative z-50 ${
         menuOpen 
           ? 'opacity-100 max-h-96' 
           : 'opacity-0 max-h-0'

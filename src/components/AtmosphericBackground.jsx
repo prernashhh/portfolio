@@ -85,12 +85,6 @@ const AtmosphericBackground = ({ darkMode }) => {
       ctx.fillStyle = vignetteGradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Occasional flicker effect
-      if (Math.random() < 0.01) {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-      
       animationFrameId = requestAnimationFrame(animate);
     };
     
