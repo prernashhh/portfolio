@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from './ThemeContext'
 import './App.css'
-import NavBar from './components/NavBar'
+import NavBar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
@@ -22,7 +22,7 @@ function App() {
         <AtmosphericBackground darkMode={darkMode} />
         <NavBar />
         
-        <main className="relative z-10">
+        <main className="relative z-10 container mx-auto">
           <Hero />
           <About />
           <Experience />

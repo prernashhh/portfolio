@@ -5,24 +5,12 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className={`py-8 relative ${darkMode ? 'bg-horror-black/80' : 'bg-spooky-cream/80'} backdrop-blur-sm`}>
-      {/* Spider web in corner */}
-      <div className="spider-web bottom-right"></div>
-
+    <footer className={`py-6 relative ${darkMode ? 'bg-horror-black/80' : 'bg-spooky-cream/80'} backdrop-blur-sm`}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <span className={`text-xl font-bold ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`} 
-                  style={{ fontFamily: 'Creepster, cursive' }}>
-              <span className="inline-block animate-float">P</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '0.2s' }}>O</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '0.4s' }}>R</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '0.6s' }}>T</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '0.8s' }}>F</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '1s' }}>O</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '1.2s' }}>L</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '1.4s' }}>I</span>
-              <span className="inline-block animate-float" style={{ animationDelay: '1.6s' }}>O</span>
+            <span className={`text-xl font-bold ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`}>
+              Prerna Sharma
             </span>
           </div>
           
@@ -62,19 +50,46 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          
+          {/* Social media icons */}
+          <div className="mb-4 md:mb-0 flex space-x-4">
+            <a 
+              href="https://github.com/prernashhh" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-2xl transition-all hover:scale-125 ${darkMode ? 'text-[#F4EAD5] hover:text-horror-red' : 'text-[#F4EAD5] hover:text-spooky-red'}`}
+              aria-label="GitHub"
+              style={{ backgroundColor: darkMode ? '#333' : '#666', padding: '10px', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+              <i className="fab fa-github"></i>
+            </a>
+            <a 
+              href="https://linkedin.com/in/prerna-sharma-2706a224a" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-2xl transition-all hover:scale-125 ${darkMode ? 'text-[#F4EAD5] hover:text-horror-red' : 'text-[#F4EAD5] hover:text-spooky-red'}`}
+              aria-label="LinkedIn"
+              style={{ backgroundColor: darkMode ? '#333' : '#666', padding: '10px', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a 
+              href="https://prernashhh.github.io/portfolio" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-2xl transition-all hover:scale-125 ${darkMode ? 'text-[#F4EAD5] hover:text-horror-red' : 'text-[#F4EAD5] hover:text-spooky-red'}`}
+              aria-label="Portfolio"
+              style={{ backgroundColor: darkMode ? '#333' : '#666', padding: '10px', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+              <i className="fas fa-globe"></i>
+            </a>
+          </div>
         </div>
         
-        <div className="border-t mt-6 pt-6 text-center">
+        <div className="border-t mt-4 pt-4 text-center">
           <p className={`text-sm ${darkMode ? 'text-gray-400 border-gray-800' : 'text-spooky-gray/70 border-gray-300'}`}>
-            <span className={`${darkMode ? 'text-horror-red' : 'text-spooky-red'}`}>©{year}</span> Horror Portfolio. All rights reserved. 
-            <span className="inline-block ml-1">Created with 🩸 and React</span>
+            © {year} Prerna Sharma. All rights reserved.
           </p>
-          
-          {/* Animated bats */}
-          <div className="relative h-10 mt-4">
-            <span className="absolute left-1/4 text-lg animate-pulse-slow">🦇</span>
-            <span className="absolute left-3/4 text-lg animate-pulse-slow" style={{ animationDelay: '0.5s' }}>🦇</span>
-          </div>
         </div>
       </div>
     </footer>

@@ -68,49 +68,49 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 relative">      
       {/* Blood drips */}
-      <div className={`absolute top-0 left-1/5 h-10 w-1 ${darkMode ? 'bg-horror-red' : 'bg-spooky-red'}`} 
+      <div className={`absolute top-0 left-1/5 h-10 w-1 ${darkMode ? 'bg-horror-purple' : 'bg-spooky-purple'}`} 
            style={{ animation: 'drip 3s infinite' }}></div>
            
       <div className="container mx-auto px-4">        
-        <h2 className={`section-title ${darkMode ? 'text-horror-red' : 'text-spooky-red'} mb-12 text-center`}>
+        <h2 className={`section-title ${darkMode ? 'text-horror-purple' : 'text-spooky-purple'} mb-12 text-center`}>
           Get In Touch
         </h2>
         
         <div className="max-w-2xl mx-auto">
           {/* Contact Information */}
-          <div className={`${darkMode ? 'bg-horror-black/50' : 'bg-spooky-cream/50'} backdrop-blur-sm p-8 rounded-lg shadow-xl mb-8`}
+          <div className={`${darkMode ? 'bg-horror-black/50' : 'bg-spooky-cream/50 text-white'} backdrop-blur-sm p-8 rounded-lg shadow-xl mb-8`}
                style={{ border: `1px solid ${darkMode ? '#8a030355' : '#b3000055'}` }}>
             
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div className="text-center">
-                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`}>
+                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-purple' : 'text-spooky-purple'}`}>
                   📧 Email
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-white'}`}>
                   prernaa999@gmail.com
                 </p>
               </div>
               <div className="text-center">
-                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`}>
+                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-purple' : 'text-spooky-purple'}`}>
                   📱 Phone
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-white'}`}>
                   +91 820-983-3992
                 </p>
               </div>
               <div className="text-center">
-                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`}>
+                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-purple' : 'text-spooky-purple'}`}>
                   📍 Location
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-white'}`}>
                   Jaipur, India
                 </p>
               </div>
               <div className="text-center">
-                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`}>
+                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-horror-purple' : 'text-spooky-purple'}`}>
                   🎓 Education
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-white'}`}>
                   B.Tech CSE (2022-2026)
                 </p>
               </div>
@@ -127,7 +127,7 @@ const Contact = () => {
           
           {submitted ? (
             <div className={`p-6 rounded-lg text-center ${
-              darkMode ? 'bg-horror-red/20 text-white' : 'bg-spooky-red/20 text-spooky-gray'
+              darkMode ? 'bg-horror-purple/20 text-white' : 'bg-spooky-purple/20 text-white'
             }`}>
               <div className="text-6xl mb-4 animate-float">🔮</div>
               <h3 className="text-xl font-bold mb-2">Message Sent Successfully!</h3>
@@ -143,7 +143,7 @@ const Contact = () => {
               <div className="mb-4">
                 <label 
                   htmlFor="name" 
-                  className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}
+                  className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-white'}`}
                 >
                   Your Name
                 </label>
@@ -157,7 +157,7 @@ const Contact = () => {
                   className={`w-full p-3 rounded-md transition-colors ${
                     darkMode 
                       ? 'bg-gray-800 text-white border border-gray-700 focus:border-gray-500' 
-                      : 'bg-white text-spooky-gray border border-gray-300 focus:border-gray-400'
+                      : 'bg-white text-black border border-gray-300 focus:border-gray-400'
                   } focus:outline-none`}
                 />
               </div>
@@ -165,7 +165,7 @@ const Contact = () => {
               <div className="mb-4">
                 <label 
                   htmlFor="email" 
-                  className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}
+                  className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-white'}`}
                 >
                   Your Email
                 </label>
@@ -179,7 +179,7 @@ const Contact = () => {
                   className={`w-full p-3 rounded-md transition-colors ${
                     darkMode 
                       ? 'bg-gray-800 text-white border border-gray-700 focus:border-gray-500' 
-                      : 'bg-white text-spooky-gray border border-gray-300 focus:border-gray-400'
+                      : 'bg-white text-black border border-gray-300 focus:border-gray-400'
                   } focus:outline-none`}
                 />
               </div>
@@ -187,7 +187,7 @@ const Contact = () => {
               <div className="mb-6">
                 <label 
                   htmlFor="message" 
-                  className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}
+                  className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-white'}`}
                 >
                   Your Message
                 </label>
@@ -201,7 +201,7 @@ const Contact = () => {
                   className={`w-full p-3 rounded-md transition-colors ${
                     darkMode 
                       ? 'bg-gray-800 text-white border border-gray-700 focus:border-gray-500' 
-                      : 'bg-white text-spooky-gray border border-gray-300 focus:border-gray-400'
+                      : 'bg-white text-black border border-gray-300 focus:border-gray-400'
                   } focus:outline-none`}
                 ></textarea>
               </div>
@@ -211,8 +211,8 @@ const Contact = () => {
                 disabled={isSubmitting}
                 className={`w-full py-3 px-4 rounded-md text-white transition-colors ${
                   darkMode 
-                    ? 'bg-horror-red hover:bg-horror-red/80' 
-                    : 'bg-spooky-red hover:bg-spooky-red/80'
+                    ? 'bg-horror-purple hover:bg-horror-purple/80' 
+                    : 'bg-spooky-purple hover:bg-spooky-purple/80'
                 } ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
                 {isSubmitting ? (
@@ -229,51 +229,6 @@ const Contact = () => {
               </button>
             </form>
           )}
-          
-          {/* Social links */}
-          <div className="mt-10">
-            <h3 className={`text-xl font-bold mb-4 text-center ${darkMode ? 'text-gray-300' : 'text-spooky-gray'}`}>
-              Or Find Me On
-            </h3>            
-            <div className="flex justify-center space-x-6">
-              <a 
-                href="https://github.com/prernashhh" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-2xl transition-transform hover:scale-125 flex items-center gap-2 ${
-                  darkMode ? 'text-horror-red' : 'text-spooky-red'
-                }`}
-                aria-label="GitHub"
-              >
-                <i className="fab fa-github"></i>
-                <span>GitHub</span>
-              </a>
-              <a 
-                href="https://linkedin.com/in/prerna-sharma-2706a224a" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-2xl transition-transform hover:scale-125 flex items-center gap-2 ${
-                  darkMode ? 'text-horror-red' : 'text-spooky-red'
-                }`}
-                aria-label="LinkedIn"
-              >
-                <i className="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-              </a>
-              <a 
-                href="https://prernashhh.github.io/portfolio" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-2xl transition-transform hover:scale-125 flex items-center gap-2 ${
-                  darkMode ? 'text-horror-red' : 'text-spooky-red'
-                }`}
-                aria-label="Portfolio"
-              >
-                <i className="fas fa-globe"></i>
-                <span>Portfolio</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

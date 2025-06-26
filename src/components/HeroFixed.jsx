@@ -12,7 +12,6 @@ const Hero = () => {
       setIsVisible(true);
     }, 1000);
     
-    // Apply animation to all hero letters with a delay
     const letterElements = document.querySelectorAll('.hero-letter');
     letterElements.forEach((letter, index) => {
       setTimeout(() => {
@@ -45,47 +44,18 @@ const Hero = () => {
       <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'} w-full max-w-4xl mx-auto relative z-10`}>
         {/* Content background for better readability */}
         <div className={`${darkMode ? 'bg-black/30' : 'bg-black/10'} backdrop-blur-sm py-10 px-6 rounded-lg`}>
-          <h1 className="relative mb-8">
+          <h1 className="relative inline-block mb-8">
             <span className={`block text-4xl sm:text-5xl md:text-7xl mb-4 ${darkMode ? 'text-gray-200' : 'text-spooky-gray'} typewriter-font`}
                   style={{ textShadow: `0 2px 10px ${darkMode ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.7)'}` }}>
-              {/* For mobile: split name into two lines */}
-              <span className="block sm:hidden">
-                <div className="mb-1 leading-tight">
-                  {"PRERNA".split('').map((letter, index) => (
-                    <span 
-                      key={`mobile-first-${index}`} 
-                      className="hero-letter inline-block opacity-0"
-                      style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-                </div>
-                <div className="leading-tight">
-                  {"SHARMA".split('').map((letter, index) => (
-                    <span 
-                      key={`mobile-second-${index}`} 
-                      className="hero-letter inline-block opacity-0"
-                      style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-                </div>
-              </span>
-              
-              {/* For tablets and larger: keep on one line */}
-              <span className="hidden sm:inline">
-                {"PRERNA SHARMA".split('').map((letter, index) => (
-                  <span 
-                    key={`desktop-${index}`} 
-                    className="hero-letter inline-block opacity-0"
-                    style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
-                  >
-                    {letter === ' ' ? '\u00A0' : letter}
-                  </span>
-                ))}
-              </span>
+              {"PRERNA SHARMA".split('').map((letter, index) => (
+                <span 
+                  key={index} 
+                  className="hero-letter inline-block opacity-0"
+                  style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
+                >
+                  {letter === ' ' ? '\u00A0' : letter}
+                </span>
+              ))}
             </span>
             <span className={`block text-xl sm:text-2xl md:text-4xl ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`} 
                   style={{ 

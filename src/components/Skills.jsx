@@ -22,11 +22,14 @@ const Skills = () => {
   const skillsRef = useRef([]);
   
   useEffect(() => {
+    console.log('Skills component rendered, darkMode:', darkMode);
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
+            console.log('A skill card is now visible');
             observer.unobserve(entry.target);
           }
         });
@@ -35,7 +38,11 @@ const Skills = () => {
     );
     
     skillsRef.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+      if (ref) {
+        observer.observe(ref);
+        // Ensure visibility when theme changes
+        ref.style.opacity = '1';
+      }
     });
     
     return () => {
@@ -43,7 +50,7 @@ const Skills = () => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, []);
+  }, [darkMode]); // Re-run effect when darkMode changes
 
   return (
     <section id="skills" className="py-16 md:py-20 relative">
@@ -62,8 +69,12 @@ const Skills = () => {
               <div 
                 key={skill.name}
                 ref={(el) => skillsRef.current[index] = el}
-                className={`${darkMode ? 'bg-horror-black/50' : 'bg-spooky-cream/50'} backdrop-blur-sm p-4 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 opacity-0`}
-                style={{ border: `1px solid ${darkMode ? '#8a030355' : '#b3000055'}` }}
+                className={`${darkMode ? 'bg-horror-black/50' : 'bg-spooky-cream'} backdrop-blur-sm p-4 md:p-6 rounded-lg shadow-xl transition-all duration-300 hover:scale-105`}
+                style={{ 
+                  border: `1px solid ${darkMode ? '#8a030355' : '#b30000aa'}`, 
+                  boxShadow: darkMode ? '0 4px 6px rgba(138, 3, 3, 0.3)' : '0 6px 12px rgba(179, 0, 0, 0.25)',
+                  opacity: 1 // Force opacity to be 1
+                }}
               >
                 <div className="flex flex-col items-center text-center gap-2 md:gap-3">
                   <span className="text-2xl md:text-3xl">{skill.icon}</span>

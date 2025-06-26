@@ -10,9 +10,11 @@ export const ThemeProvider = ({ children }) => {
     if (darkMode) {
       root.classList.add('dark');
       root.classList.remove('light');
+      console.log('Theme switched to dark mode');
     } else {
       root.classList.add('light');
       root.classList.remove('dark');
+      console.log('Theme switched to light mode');
     }
   }, [darkMode]);
 
