@@ -1,0 +1,206 @@
+import { useRef, useEffect, useState } from 'react';
+import { useTheme } from '../ThemeContext';
+
+const Hero = () => {
+  const { darkMode } = useTheme();
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Wait for the entrance animation to complete
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1000);
+    
+    const letterElements = document.querySelectorAll('.hero-letter');
+    letterElements.forEach((letter, index) => {
+      setTimeout(() => {
+        letter.classList.add('text-flicker-in');
+      }, 2000 + (index * 150));
+    });
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section 
+      id="home" 
+      ref={containerRef}
+      className="min-h-screen flex flex-col justify-center items-center relative"
+    >
+      {/* Cinematic fog overlay */}
+      <div className="absolute inset-0 z-0 hero-fog-overlay"></div>
+      
+      {/* Decorative blood drips - more subtle and artistic now */}
+      <div className={`absolute top-0 left-1/4 w-px h-20 ${darkMode ? 'bg-horror-red' : 'bg-spooky-red'} opacity-70`} 
+           style={{ animation: 'drip 8s infinite', filter: 'blur(0.5px)' }}></div>
+      <div className={`absolute top-0 right-1/3 w-px h-32 ${darkMode ? 'bg-horror-red' : 'bg-spooky-red'} opacity-60`} 
+           style={{ animation: 'drip 12s infinite', animationDelay: '3s', filter: 'blur(0.5px)' }}></div>
+      
+      <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>        <h1 className="relative inline-block mb-8">
+          <span className={`block text-5xl md:text-7xl mb-4 ${darkMode ? 'text-gray-200' : 'text-spooky-gray'} typewriter-font`}>
+            {"PRERNA SHARMA".split('').map((letter, index) => (
+              <span 
+                key={index} 
+                className="hero-letter inline-block opacity-0"
+                style={{ textShadow: `0 0 8px ${darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.6)'}` }}
+              >
+                {letter === ' ' ? '\u00A0' : letter}
+              </span>
+            ))}
+          </span>
+          <span className={`block text-2xl md:text-4xl ${darkMode ? 'text-horror-red' : 'text-spooky-red'}`} 
+                style={{ 
+                  fontFamily: "'Playfair Display', serif",
+                  textShadow: `0 0 10px ${darkMode ? 'rgba(138,3,3,0.8)' : 'rgba(179,0,0,0.6)'}`
+                }}>
+            Full-Stack Developer
+          </span>
+          
+          {/* Small decorative element */}
+          <span className="block mx-auto w-20 h-px mt-8 mb-8 blood-drip"
+                style={{ 
+                  background: `linear-gradient(to right, transparent, ${darkMode ? 'var(--horror-red)' : 'var(--spooky-red)'}, transparent)`,
+                  boxShadow: `0 0 8px ${darkMode ? 'rgba(138,3,3,0.8)' : 'rgba(179,0,0,0.6)'}`
+                }}></span>
+        </h1>
+          <p className={`text-xl md:text-2xl mb-12 max-w-2xl mx-auto ${darkMode ? 'text-gray-400' : 'text-spooky-gray'}`}>
+          Computer Science & Engineering Student at JK Lakshmipat University,
+          crafting <span className={darkMode ? 'text-horror-red' : 'text-spooky-red'}>innovative</span> web applications 
+          with modern technologies and dark aesthetics.
+        </p>
+        
+        <div className="flex flex-wrap justify-center gap-6">
+          <a 
+            href="#projects" 
+            className={`px-8 py-4 rounded-none text-white border relative overflow-hidden group ${
+              darkMode 
+                ? 'bg-horror-black border-horror-red hover:bg-horror-red/20' 
+                : 'bg-spooky-gray border-spooky-red hover:bg-spooky-red/20'
+            } transition-all duration-500`}
+          >
+            <span className="relative z-10">Explore My Work</span>
+            <span className={`absolute bottom-0 left-0 w-full h-0 ${
+              darkMode ? 'bg-horror-red/40' : 'bg-spooky-red/30'
+            } transition-all duration-500 group-hover:h-full`}></span>
+          </a>
+          <a 
+            href="#contact" 
+            className={`px-8 py-4 rounded-none relative overflow-hidden group ${
+              darkMode 
+                ? 'bg-horror-red hover:bg-horror-red/80 text-white' 
+                : 'bg-spooky-red hover:bg-spooky-red/80 text-white'
+            } transition-all duration-500`}
+          >
+            <span className="relative z-10">Contact Me</span>
+            <span className={`absolute bottom-0 left-0 w-full h-0 ${
+              darkMode ? 'bg-white/10' : 'bg-white/10'
+            } transition-all duration-500 group-hover:h-full`}></span>
+          </a>
+        </div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        <span className={`text-sm mb-2 ${darkMode ? 'text-gray-500' : 'text-spooky-gray/70'}`}>Scroll Down</span>
+        <div className={`w-px h-12 ${darkMode ? 'bg-horror-red' : 'bg-spooky-red'} opacity-60`} 
+             style={{ animation: 'scroll-indicator 2s ease-in-out infinite' }}></div>
+      </div>
+      
+      <style>{`
+        .text-flicker-in {
+          animation: textFlicker 3s linear both;
+          opacity: 1;
+        }
+        
+        @keyframes textFlicker {
+          0% {
+            opacity: 0;
+            text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+          }
+          10% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          10.1% {
+            opacity: 0;
+            text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+          }
+          10.2% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          20% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          20.1% {
+            opacity: 0;
+            text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+          }
+          20.6% {
+            opacity: 0;
+            text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+          }
+          30% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          30.1% {
+            opacity: 0;
+            text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+          }
+          30.5% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          45% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          50% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          55% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          55.1% {
+            opacity: 0;
+            text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+          }
+          57% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+          100% {
+            opacity: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          }
+        }
+        
+        .hero-fog-overlay {
+          background: radial-gradient(circle at center, 
+            transparent 0%, 
+            rgba(0, 0, 0, 0.2) 70%, 
+            rgba(0, 0, 0, 0.5) 100%
+          );
+        }
+        
+        @keyframes scroll-indicator {
+          0%, 100% { 
+            transform: translateY(0); 
+            opacity: 0.6;
+          }
+          50% { 
+            transform: translateY(10px); 
+            opacity: 1;
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default Hero;
